@@ -1,33 +1,21 @@
 # Week 1 Programming Prompt
 
-## Prompt 1
+## The `BST`
 
-### Specification 1
-Create a program that can:
-* Accept the name of a file as a command line argument
-* Read from that file, assuming it contains content in the following format
-  ```
-  key value\n
-  key2 value2\n
-  ```
-    * Any amount of whitespace may exist between keys and values
-    * Line terminators will be system dependent
-* Record the key/value pairs such that a value can be retrieved by its key
-* Output the key/value pairs as a list, with a special terminal string:
-  ```
-  key: value\n
-  key2: value2\n
-  END\n
-  ```
+What are the properties of a Binary Search Tree (`BST`)
+* A `Tree` is composed of `Nodes`
+    * A `Node` holds a value
+    * A `Node` may contain references to other `Node`s, called children or child `Node`s
+* A `Tree` has a root `Node`
+* A `BST` only permits two child `Node`s per `Node`
+* A `BST` requires that new `Node`s are inserted such that:
+    * All values in `Node`s in the right subtree are greater than the value in the root of the subtree
+    * All values in `Node`s in the left subtree are less than (or equal to) the value in the root of the subtree 
 
-### Design 1
-* What do we need to create?
-    * What is the data? 
-    * What are the roles that objects in this system will play?
-* How can we guard against change?
-    * Multiple values for a single key
-    * Fetch keys by value
-    * Comments or blank lines
-    * Output format may change
-    * Input format may change (why just a file?)
-    * Anything else?
+What behaviors are supported by the BST?
+* Inserting values
+    * Values, not Nodes! 
+    * Nothing outside of the BST object should know about the internal representation of the BST, or how the BST stores values. Why is this important?
+* Finding values
+* Counting values
+* Possibly some others, but we won’t implement them (i.e. deleting, printing)
