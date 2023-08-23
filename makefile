@@ -26,11 +26,11 @@ env:
 #    current directory (.), where the filename ends in ".class", and
 #    deletes (-delete) them
 clean:
-	clear
+	@clear
 	@echo "Deleting all class files..."
 	@find . -name "*.class" -type f -delete
 	@echo "Deleting compiled files..."
-	@rm -rf target
+	@rm -rf $(COMPILE_DIR)
 
 # compile depends on clean to ensure we start from a clean slate
 #     every time, so that any changes we make to our java files are 
