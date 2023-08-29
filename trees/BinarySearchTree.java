@@ -1,8 +1,8 @@
 package trees;
 
-public class BinarySearchTree {
+public class BinarySearchTree<T extends Comparable<T>> {
   private int elementCount;
-  private BinarySearchTreeNode root;
+  private BinarySearchTreeNode<T> root;
 
   public BinarySearchTree() {
     this.elementCount = 0;
@@ -13,9 +13,9 @@ public class BinarySearchTree {
     return this.elementCount;
   }
 
-  public void insert(int value) {
+  public void insert(T value) {
     if (this.root == null) {
-      this.root = new BinarySearchTreeNode(value);
+      this.root = new BinarySearchTreeNode<T>(value);
     } else {
       this.root.insert(value);
     }
@@ -23,7 +23,7 @@ public class BinarySearchTree {
     this.elementCount++;
   }
 
-  public boolean find(int testValue) {
+  public boolean find(T testValue) {
     return this.root != null && this.root.find(testValue);
   }
 

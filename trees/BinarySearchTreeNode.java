@@ -1,56 +1,56 @@
 package trees;
 
-public class BinarySearchTreeNode {
-  private int value;
-  private BinarySearchTreeNode left, right;
+public class BinarySearchTreeNode<T extends Comparable<T>> {
+  private T value;
+  private BinarySearchTreeNode<T> left, right;
 
-  public BinarySearchTreeNode(int value) {
+  public BinarySearchTreeNode(T value) {
     this.value = value;
 
     this.left = null;
     this.right = null;
   }
 
-  public int getValue() {
+  public T getValue() {
     return this.value;
   }
 
-  public BinarySearchTreeNode getLeft() {
+  public BinarySearchTreeNode<T> getLeft() {
     return this.left;
   }
 
-  public BinarySearchTreeNode getRight() {
+  public BinarySearchTreeNode<T> getRight() {
     return this.right;
   }
 
-  public void setLeft(BinarySearchTreeNode node) {
+  public void setLeft(BinarySearchTreeNode<T> node) {
     this.left = node;
   }
 
-  public void setRight(BinarySearchTreeNode node) {
+  public void setRight(BinarySearchTreeNode<T> node) {
     this.right = node;
   }
 
-  public void insert(int value) {
-    if (value < this.getValue()) {
+  public void insert(T value) {
+    if (value.compareTo(this.getValue()) < 0) {
       if (this.left == null) {
-        this.left = new BinarySearchTreeNode(value);
+        this.left = new BinarySearchTreeNode<T>(value);
       } else {
         this.left.insert(value);
       }
-    } else if (value > this.getValue()) {
+    } else if (value.compareTo(this.getValue()) > 0) {
       if (this.right == null) {
-        this.right = new BinarySearchTreeNode(value);
+        this.right = new BinarySearchTreeNode<T>(value);
       } else {
         this.right.insert(value);
       }
     }
   }
 
-  public boolean find(int value) {
-    if (this.getValue() == value) {
+  public boolean find(T value) {
+    if (value.compareTo(this.getValue()) == 0) {
       return true;
-    } else if (value < this.getValue()) {
+    } else if (value.compareTo(this.getValue()) < 0) {
       return this.getLeft() != null && this.getLeft().find(value);
     } else {
       return this.getRight() != null && this.getRight().find(value);
